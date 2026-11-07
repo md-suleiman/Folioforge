@@ -161,7 +161,7 @@ section{position:relative;z-index:1;padding:120px 50px}
 /* ============ SKILLS ============ */
 #skills{background:var(--darker)}
 .skills-container,.projects-container,.testimonials-container{max-width:1200px;margin:0 auto}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+.skills-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
 .skill-card{background:var(--card-bg);border:1px solid var(--glass-border);border-radius:20px;padding:40px 30px;text-align:center;position:relative;overflow:hidden}
 .skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--secondary));transform:scaleX(0);transition:transform .4s ease}
 .skill-card:hover::before{transform:scaleX(1)}
@@ -267,6 +267,7 @@ footer span{color:var(--secondary)}
 @media(max-width:768px){
  section{padding:80px 24px}
  .navbar,.navbar.scrolled{padding:16px 24px}
+ .skills-grid{grid-template-columns:1fr}
  .nav-links{display:none}
  .menu-toggle{display:flex}
  .hero{padding:150px 24px 50px}
@@ -378,7 +379,7 @@ footer span{color:var(--secondary)}
   <div class="section-header reveal">
     <div class="section-number">01</div>
     <h2>About <span class="gradient-text">Me</span></h2>
-    <p>Aspiring Full stack developer and tech enthusiast</p>
+    <p>Aspiring Full stack developer and Tech Enthusiast</p>
   </div>
   <div class="about-grid">
     <div class="about-image reveal-left">
@@ -401,7 +402,7 @@ footer span{color:var(--secondary)}
       <p>I'm particularly interested in turning ideas into practical products, exploring new technologies and continuously improving my development skills.</p>
       <p><b>🎓 Ramaiah University of Applied Sciences</b><br>B.Tech — Computer Science and Engineering · Undergraduate · Currently in 3rd Semester</p>
       <div class="about-stats">
-        <div class="stat reveal-scale stagger-1"><div class="stat-number" data-count="2">0</div><div class="stat-label">Major Projects</div></div>
+        <div class="stat reveal-scale stagger-1"><div class="stat-number" data-count="3">0</div><div class="stat-label">Major Projects</div></div>
         <div class="stat reveal-scale stagger-2"><div class="stat-number" data-count="1">0</div><div class="stat-label">Place Win</div></div>
         <div class="stat reveal-scale stagger-3"><div class="stat-number" data-count="3">0</div><div class="stat-label">Hackathons</div></div>
       </div>
@@ -470,17 +471,35 @@ footer span{color:var(--secondary)}
 
     <div class="project-card flip">
       <div class="project-image reveal-right">
-        <div class="project-image-bg">🤝</div>
+        <div class="project-image-bg">🌍</div>
         <div class="project-image-overlay">
-          <span class="btn btn-primary" style="cursor:default">🏆 1st Place</span>
+          <a href="https://geosentinelv2.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">Live Prototype</a>
+          <a href="https://github.com/md-suleiman/GeoSentinel-V2" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:#fff;color:#fff">GitHub</a>
         </div>
       </div>
       <div class="project-info reveal-left">
-        <div class="project-label">Student Wellbeing Concept</div>
-        <h3>Sahay</h3>
-        <p>An anonymous student support and counselling concept that uses urgency-based routing to connect students with qualified human support.</p>
-        <div class="project-tech"><span>Anonymous Support</span><span>Priority Queue</span><span>Human Counselling</span><span>Campus Innovation</span></div>
-        <a href="#experience" class="btn btn-primary magnetic">See Achievement →</a>
+        <div class="project-label">AI-Powered Landslide Risk Monitoring</div>
+        <h3>GeoSentinel</h3>
+        <p>Landslide risk assessment and monitoring across Northeast India using environmental data, terrain analysis, machine learning, and GIS-based infrastructure mapping.</p>
+        <div class="project-tech"><span>React</span><span>JavaScript</span><span>Vite</span><span>Leaflet.js</span><span>Python</span><span>FastAPI</span><span>Scikit-learn</span><span>Firebase</span><span>SQLite</span><span>Open-Meteo</span></div>
+        <a href="https://geosentinelv2.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary magnetic">Live Prototype →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-image reveal-left">
+        <div class="project-image-bg">💧</div>
+        <div class="project-image-overlay">
+          <a href="https://liquisense.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">Live Prototype</a>
+          <a href="https://github.com/md-suleiman/LiquiSense" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:#fff;color:#fff">GitHub</a>
+        </div>
+      </div>
+      <div class="project-info reveal-right">
+        <div class="project-label">Financial Intelligence Platform</div>
+        <h3>LiquiSense</h3>
+        <p>A cash-flow intelligence dashboard that helps businesses forecast future balances, manage receipts and bills, track transactions, analyze payment delays, and explore financial recovery scenarios.</p>
+        <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>FastAPI</span><span>Pandas</span><span>NetworkX</span><span>SQLite</span><span>RapidOCR</span></div>
+        <a href="https://liquisense.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary magnetic">Live Prototype →</a>
       </div>
     </div>
 
