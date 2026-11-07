@@ -4028,5 +4028,7 @@
     }
     restart();
   });
-  start();
+  // Use the same reset-and-start path as the external Tour button so a fresh
+  // page load follows exactly the same tour sequence as a replay.
+  restart();
 })();
