@@ -51,8 +51,8 @@ A static host such as Netlify or Vercel can also serve this folder without a bui
 
 ## Before publishing
 
-- Replace `your.email@example.com` with the correct public contact email.
-- Replace the generic YouTube link if you want to show a YouTube profile; otherwise remove that social icon.
+- The public contact email is `mdsuleiman.msm@gmail.com`.
+- The YouTube social link points to <https://www.youtube.com/@MdSuleimanEdu>.
 - The About section currently contains zero-valued counters. Update them with accurate numbers or remove them.
 - The contact form currently presents a client-side success interaction; it is **not connected to an email service or backend**, so submitted messages are not delivered. Connect a form provider or backend before relying on it.
 - Browser autoplay rules can prevent the soundtrack from starting with sound until the visitor interacts with the page. Keep the visible mute/volume control.

@@ -174,7 +174,8 @@ section{position:relative;z-index:1;padding:120px 50px}
 .skill-card h3{font-size:20px;margin-bottom:12px}
 .skill-card p{color:var(--text-muted);font-size:14px;margin-bottom:20px}
 .skill-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.skill-tag{padding:5px 14px;background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;font-size:12px;color:var(--text-muted);transition:all .3s ease}
+.skill-tag{display:inline-flex;align-items:center;gap:5px;padding:5px 14px;background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;font-size:12px;color:var(--text-muted);transition:all .3s ease}
+.skill-tag-icon{font-size:13px;line-height:1}
 .skill-tag:hover{border-color:var(--primary);color:var(--primary)}
 
 /* ============ PROJECTS ============ */
@@ -377,7 +378,7 @@ footer span{color:var(--secondary)}
   <div class="section-header reveal">
     <div class="section-number">01</div>
     <h2>About <span class="gradient-text">Me</span></h2>
-    <p>Student developer, builder and hackathon enthusiast</p>
+    <p>Aspiring Full stack developer and tech enthusiast</p>
   </div>
   <div class="about-grid">
     <div class="about-image reveal-left">
@@ -420,28 +421,22 @@ footer span{color:var(--secondary)}
       <div class="skill-card tilt-card reveal stagger-1">
         <div class="skill-icon icon-blue">💻</div><h3>Programming Languages</h3>
         <p>Core languages I use for problem solving and development</p>
-        <div class="skill-tags"><span class="skill-tag">C</span><span class="skill-tag">C++</span><span class="skill-tag">JavaScript</span><span class="skill-tag">SQL</span></div>
+        <div class="skill-tags"><span class="skill-tag"><span class="skill-tag-icon">©</span>C</span><span class="skill-tag"><span class="skill-tag-icon">⚙</span>C++</span><span class="skill-tag"><span class="skill-tag-icon">🟨</span>JavaScript</span><span class="skill-tag"><span class="skill-tag-icon">🗄</span>SQL</span></div>
       </div>
       <div class="skill-card tilt-card reveal stagger-2">
         <div class="skill-icon icon-pink">🎨</div><h3>Frontend Development</h3>
         <p>Building responsive, interactive user interfaces</p>
-        <div class="skill-tags"><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">React.js</span><span class="skill-tag">Vite</span></div>
+        <div class="skill-tags"><span class="skill-tag"><span class="skill-tag-icon">🌐</span>HTML</span><span class="skill-tag"><span class="skill-tag-icon">🎨</span>CSS</span><span class="skill-tag"><span class="skill-tag-icon">⚛</span>React.js</span><span class="skill-tag"><span class="skill-tag-icon">⚡</span>Vite</span></div>
       </div>
       <div class="skill-card tilt-card reveal stagger-3">
         <div class="skill-icon icon-green">⚙️</div><h3>Backend &amp; Database</h3>
         <p>APIs, server logic and realtime data storage</p>
-        <div class="skill-tags"><span class="skill-tag">Node.js</span><span class="skill-tag">Express.js</span><span class="skill-tag">Firebase Realtime DB</span></div>
+        <div class="skill-tags"><span class="skill-tag"><span class="skill-tag-icon">🟢</span>Node.js</span><span class="skill-tag"><span class="skill-tag-icon">🚂</span>Express.js</span><span class="skill-tag"><span class="skill-tag-icon">🔥</span>Firebase Realtime DB</span></div>
       </div>
       <div class="skill-card tilt-card reveal stagger-4">
         <div class="skill-icon icon-orange">🛠️</div><h3>Tools &amp; Platforms</h3>
         <p>Version control, deployment and integrations</p>
-        <div class="skill-tags"><span class="skill-tag">Git</span><span class="skill-tag">GitHub</span><span class="skill-tag">Vercel</span><span class="skill-tag">Render</span><span class="skill-tag">Leaflet.js</span><span class="skill-tag">Google Gemini</span></div>
-      </div>
-      <div class="skill-card tilt-card reveal stagger-5">
-      <div class="skill-card tilt-card reveal stagger-6">
-        <div class="skill-icon icon-purple">🔭</div><h3>Emerging Technologies</h3>
-        <p>Exploring practical tools and collaborative development</p>
-        <div class="skill-tags"><span class="skill-tag">Problem Solving</span><span class="skill-tag">Innovation</span><span class="skill-tag">Collaboration</span></div>
+        <div class="skill-tags"><span class="skill-tag"><span class="skill-tag-icon">🔀</span>Git</span><span class="skill-tag"><span class="skill-tag-icon">🐙</span>GitHub</span><span class="skill-tag"><span class="skill-tag-icon">▲</span>Vercel</span><span class="skill-tag"><span class="skill-tag-icon">🚀</span>Render</span><span class="skill-tag"><span class="skill-tag-icon">🗺</span>Leaflet.js</span><span class="skill-tag"><span class="skill-tag-icon">✦</span>Google Gemini</span></div>
       </div>
     </div>
   </div>
@@ -524,14 +519,6 @@ footer span{color:var(--secondary)}
         <p>Participated in an intensive build sprint focused on rapid prototyping, team collaboration and shipping a working solution under tight constraints.</p>
       </div>
     </div>
-    <div class="timeline-item reveal-right">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content tilt-card">
-        <div class="timeline-date">What drives me</div>
-        <h3>Building practical applications</h3><h4>Software Engineering · Innovation · Collaboration</h4>
-        <p>I'm interested in frontend and web development, product development, problem solving, emerging technologies and collaborative building.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -545,13 +532,13 @@ footer span{color:var(--secondary)}
   <div class="contact-container">
     <div class="contact-grid">
       <div class="reveal-left">
-        <div class="contact-info-card"><div class="contact-icon ci-blue">💼</div><div><h4>LinkedIn</h4><p>linkedin.com/in/mdsuleiman</p></div></div>
+        <div class="contact-info-card"><div class="contact-icon ci-blue" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.2 8.2H1.8V22h3.4V8.2ZM3.5 2A2 2 0 1 0 3.5 6a2 2 0 0 0 0-4ZM8.7 8.2V22H12v-6.83c0-1.8.34-3.54 2.57-3.54 2.2 0 2.23 2.06 2.23 3.67V22h3.34v-7.42c0-3.64-.78-6.44-5-6.44-2.03 0-3.39 1.12-3.95 2.18h-.05V8.2H8.7Z"/></svg></div><div><h4>LinkedIn</h4><p>linkedin.com/in/mdsuleiman</p></div></div>
         <div class="contact-info-card"><div class="contact-icon ci-pink" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.75.5 12.23c0 5.19 3.3 9.59 7.87 11.14.58.11.79-.26.79-.57v-2.02c-3.2.71-3.87-1.4-3.87-1.4-.53-1.37-1.28-1.74-1.28-1.74-1.05-.74.08-.73.08-.73 1.16.08 1.77 1.22 1.77 1.22 1.03 1.8 2.7 1.28 3.36.98.1-.76.4-1.28.73-1.57-2.55-.3-5.23-1.31-5.23-5.83 0-1.29.45-2.34 1.19-3.17-.12-.3-.52-1.5.11-3.13 0 0 .97-.32 3.18 1.21a10.8 10.8 0 0 1 5.79 0c2.2-1.53 3.17-1.21 3.17-1.21.63 1.63.24 2.83.12 3.13.74.83 1.19 1.88 1.19 3.17 0 4.53-2.68 5.53-5.24 5.82.41.36.78 1.08.78 2.18v3.24c0 .31.21.69.8.57 4.56-1.55 7.86-5.95 7.86-11.14C23.5 5.75 18.35.5 12 .5Z"/></svg></div><div><h4>GitHub</h4><p>github.com/md-suleiman</p></div></div>
-        <div class="contact-info-card"><div class="contact-icon ci-pink">📧</div><div><h4>Email</h4><p>your.email@example.com</p></div></div>
+        <div class="contact-info-card"><div class="contact-icon ci-pink">📧</div><div><h4>Email</h4><p>mdsuleiman.msm@gmail.com</p></div></div>
         <div class="contact-socials">
           <a href="https://github.com/md-suleiman" target="_blank" rel="noopener" class="social-link" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.75.5 12.23c0 5.19 3.3 9.59 7.87 11.14.58.11.79-.26.79-.57v-2.02c-3.2.71-3.87-1.4-3.87-1.4-.53-1.37-1.28-1.74-1.28-1.74-1.05-.74.08-.73.08-.73 1.16.08 1.77 1.22 1.77 1.22 1.03 1.8 2.7 1.28 3.36.98.1-.76.4-1.28.73-1.57-2.55-.3-5.23-1.31-5.23-5.83 0-1.29.45-2.34 1.19-3.17-.12-.3-.52-1.5.11-3.13 0 0 .97-.32 3.18 1.21a10.8 10.8 0 0 1 5.79 0c2.2-1.53 3.17-1.21 3.17-1.21.63 1.63.24 2.83.12 3.13.74.83 1.19 1.88 1.19 3.17 0 4.53-2.68 5.53-5.24 5.82.41.36.78 1.08.78 2.18v3.24c0 .31.21.69.8.57 4.56-1.55 7.86-5.95 7.86-11.14C23.5 5.75 18.35.5 12 .5Z"/></svg></a>
-          <a href="https://www.linkedin.com/in/mdsuleiman" target="_blank" rel="noopener" class="social-link" title="LinkedIn">💼</a>
-          <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="social-link" title="YouTube" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.12C19.55 3.55 12 3.55 12 3.55s-7.55 0-9.4.53A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.12c1.85.53 9.4.53 9.4.53s7.55 0 9.4-.53a3 3 0 0 0 2.1-2.12A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.55 15.7V8.3L16 12l-6.45 3.7Z"/></svg></a>
+          <a href="https://www.linkedin.com/in/mdsuleiman" target="_blank" rel="noopener" class="social-link" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 8.2H1.8V22h3.4V8.2ZM3.5 2A2 2 0 1 0 3.5 6a2 2 0 0 0 0-4ZM8.7 8.2V22H12v-6.83c0-1.8.34-3.54 2.57-3.54 2.2 0 2.23 2.06 2.23 3.67V22h3.34v-7.42c0-3.64-.78-6.44-5-6.44-2.03 0-3.39 1.12-3.95 2.18h-.05V8.2H8.7Z"/></svg></a>
+          <a href="https://www.youtube.com/@MdSuleimanEdu" target="_blank" rel="noopener" class="social-link" title="YouTube" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.12C19.55 3.55 12 3.55 12 3.55s-7.55 0-9.4.53A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.12c1.85.53 9.4.53 9.4.53s7.55 0 9.4-.53a3 3 0 0 0 2.1-2.12A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.55 15.7V8.3L16 12l-6.45 3.7Z"/></svg></a>
         </div>
       </div>
       <form class="contact-form reveal-right" id="contactForm">
@@ -645,7 +632,7 @@ function links(){
 (function anim(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw()});links();requestAnimationFrame(anim)})();
 
 /* ===== TYPING EFFECT ===== */
-const words=['Developer','Builder','Hackathon Enthusiast','Frontend Engineer'];
+const words=['Developer','Builder','Tech Enthusiast'];
 let w=0,c=0,del=false;const tEl=document.getElementById('typedText');
 (function type(){
   const cur=words[w];
