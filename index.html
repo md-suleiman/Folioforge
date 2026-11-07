@@ -560,13 +560,13 @@ footer span{color:var(--secondary)}
           <a href="https://www.youtube.com/@MdSuleimanEdu" target="_blank" rel="noopener" class="social-link" title="YouTube" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.12C19.55 3.55 12 3.55 12 3.55s-7.55 0-9.4.53A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.12c1.85.53 9.4.53 9.4.53s7.55 0 9.4-.53a3 3 0 0 0 2.1-2.12A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.55 15.7V8.3L16 12l-6.45 3.7Z"/></svg></a>
         </div>
       </div>
-      <form class="contact-form reveal-right" id="contactForm">
+      <form class="contact-form reveal-right" id="contactForm" action="https://formspree.io/f/mwlljqjj" method="POST">
         <div class="form-row">
-          <div class="form-group"><input type="text" placeholder=" " required><label>Your Name</label></div>
-          <div class="form-group"><input type="email" placeholder=" " required><label>Your Email</label></div>
+          <div class="form-group"><input type="text" id="contactName" name="name" placeholder=" " autocomplete="name" required><label for="contactName">Your Name</label></div>
+          <div class="form-group"><input type="email" id="contactEmail" name="email" placeholder=" " autocomplete="email" required><label for="contactEmail">Your Email</label></div>
         </div>
-        <div class="form-group"><input type="text" placeholder=" "><label>Subject</label></div>
-        <div class="form-group"><textarea placeholder=" " required></textarea><label>Your Message</label></div>
+        <div class="form-group"><input type="text" id="contactSubject" name="subject" placeholder=" "><label for="contactSubject">Subject</label></div>
+        <div class="form-group"><textarea id="contactMessage" name="message" placeholder=" " required></textarea><label for="contactMessage">Your Message</label></div>
         <button type="submit" class="form-submit">Send Message ✉️</button>
       </form>
     </div>
@@ -762,18 +762,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     const t=document.querySelector(href);
     if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
   });
-});
-
-/* ===== CONTACT FORM ===== */
-document.getElementById('contactForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  const b=this.querySelector('.form-submit'),txt=b.textContent;
-  b.textContent='Sending... ⏳';b.disabled=true;
-  setTimeout(()=>{
-    b.textContent='Sent Successfully! ✅';
-    b.style.background='linear-gradient(135deg,#43e97b,#38f9d7)';
-    setTimeout(()=>{b.textContent=txt;b.style.background='';b.disabled=false;this.reset()},2400);
-  },1400);
 });
 
 /* ===== SWARM STARTUP / AUDIO UNLOCK ===== */
