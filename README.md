@@ -1,68 +1,110 @@
-# Folioforge
+# Suleiman – Portfolio
 
-An interactive, single-page developer portfolio for **Mohammed Suleiman**. The site is built with plain HTML, CSS and JavaScript, with an animated swarm-style page reconstruction, custom cursor effects, a soundtrack, and portfolio sections for the owner's background, skills, projects and achievements.
+An interactive personal portfolio showcasing my work, skills, achievements and journey as a Computer Science Engineering student.
 
-> **Project status:** Personal portfolio source. Review the contact details, placeholder counters and reuse rights called out below before publishing it publicly.
+🌐 **Live Website:** https://mdsuleiman.vercel.app
+
+## Overview
+
+This portfolio is designed to present my work through a visually engaging and interactive experience rather than a conventional static layout. It combines a dark visual theme, custom animations, interactive elements and dedicated sections for exploring my background and work.
 
 ## Features
 
-- Full-page portfolio with Home, About, Skills, Projects, Achievements and Contact sections.
-- Swarm-style page reconstruction launched by the supplied `swarm.js` script.
-- Animated cursor companions, scroll progress, reveal effects, floating shapes and interactive card/button effects.
-- Local soundtrack controlled by the page's volume control.
-- Responsive navigation and mobile layout.
-- Local profile cutout image.
+- **Swarm-Style Intro Animation** – Reconstructs the webpage using animated cursors and can be replayed through the Tour button.
+- **Custom Cursor Effects** – Animated cursor companions that follow pointer movement.
+- **Particle Background** – Animated particles with connecting lines.
+- **Typing Effect** – Dynamic text animation in the hero section.
+- **Scroll Animations** – Section reveal effects and a scroll progress indicator.
+- **Interactive Cards** – 3D tilt effects and animated hover interactions.
+- **Magnetic Buttons** – Cursor-responsive button movement and ripple effects.
+- **Background Audio** – Audio integrated into the overall browsing experience.
+- **Responsive Navigation** – Navigation links and a mobile menu.
 
-## Project structure
+## Tech Stack
+
+| Category | Technologies |
+|---|---|
+| Structure | HTML5 |
+| Styling | CSS3 |
+| Programming Language | JavaScript (ES6+) |
+| Animations | CSS Animations, JavaScript, swarm.js |
+| Browser APIs | Canvas API, SVG, IntersectionObserver API |
+| Version Control | Git, GitHub |
+| Development Environment | Antigravity |
+| Deployment | Vercel |
+
+The portfolio is built using vanilla HTML, CSS and JavaScript. It does not require a frontend framework or package installation.
+
+## Getting Started
+
+### Prerequisites
+
+- A modern web browser
+- Python 3 or Visual Studio Code with Live Server
+
+### Run Locally
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/md-suleiman/Folioforge.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd Folioforge
+   ```
+
+3. Start a local server:
+
+   ```bash
+   python -m http.server 8000
+   ```
+
+4. Open the following address in your browser:
+
+   ```text
+   http://localhost:8000
+   ```
+
+No additional dependencies or build steps are required.
+
+## Project Structure
 
 ```text
 Folioforge/
-├── index.html                         # Main page (latest supplied version)
-├── swarm.js                           # Swarm reconstruction runtime
-├── audio.mp3                          # Soundtrack used by the swarm tour
-├── profile-photo-cutout.png           # Profile image
-├── roadscan.png                       # RoadScan project preview
-├── Geosentinel.png                    # GeoSentinel project preview
-├── liquisense.png                     # LiquiSense project preview
+├── index.html
+├── swarm.js
+├── audio.mp3
+├── favicon.svg
+├── profile-photo-cutout.png
+├── roadscan.png
+├── Geosentinel.png
+├── liquisense.png
 ├── archive/
-│   └── index-before-audio-unlock-update.html  # Earlier HTML variant
-├── NOTICE.md                          # Source/reuse notes
+├── NOTICE.md
 └── .gitignore
 ```
 
-## Run locally
+## Deployment
 
-No npm install or build step is required. Serve the folder over HTTP so the browser can load the local image, audio and JavaScript assets:
+The portfolio is deployed using **Vercel**.
 
-```bash
-python -m http.server 8000
-```
+- **Live Website:** https://mdsuleiman.vercel.app
+- **Source Code:** https://github.com/md-suleiman/Folioforge
 
-Then open <http://localhost:8000>.
+## Notes
 
-You can also use VS Code's Live Server extension. Opening `index.html` directly with a `file://` URL may behave differently for media and browser autoplay policies.
+- The contact form currently displays a client-side success message and is not connected to an email service or backend.
+- See [NOTICE.md](NOTICE.md) for source and attribution information regarding the swarm animation runtime.
 
-## Deploy with GitHub Pages
+## Connect
 
-1. Create a GitHub repository named `Folioforge`.
-2. Upload the contents of this folder to the repository root (not the enclosing ZIP or parent folder).
-3. In GitHub, open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**, select `main` and `/ (root)`, then save.
-5. Wait for GitHub Pages to publish the site; the published URL will be shown in the Pages settings.
+- [LinkedIn](https://www.linkedin.com/in/mdsuleiman)
+- [GitHub](https://github.com/md-suleiman)
+- [Portfolio](https://mdsuleiman.vercel.app)
 
-A static host such as Netlify or Vercel can also serve this folder without a build command. Use the repository root as the output directory.
+---
 
-## Before publishing
-
-- The public contact email is `mdsuleiman.msm@gmail.com`.
-- The YouTube social link points to <https://www.youtube.com/@MdSuleimanEdu>.
-- The About section currently contains zero-valued counters. Update them with accurate numbers or remove them.
-- The contact form currently presents a client-side success interaction; it is **not connected to an email service or backend**, so submitted messages are not delivered. Connect a form provider or backend before relying on it.
-- Browser autoplay rules can prevent the soundtrack from starting with sound until the visitor interacts with the page. Keep the visible mute/volume control.
-- Check the page on mobile, keyboard navigation and reduced-motion settings before treating it as production-ready.
-
-## Source and reuse note
-
-The supplied `swarm.js` identifies itself as **Swarm Rebuild**. The upstream repository README says that the project has no license yet, adapts substantial motion-design and animation-engine work from Joel Califa's original Swarm project, and asks users not to reuse the code without checking with the relevant creator(s). See <https://github.com/DhvanilPatel/swarm-cursors>.
-
-This repository therefore does not add an open-source license or claim ownership of that animation engine. Obtain the necessary written permissions and review upstream attribution requirements before making a public copy or redistributing the swarm runtime. See [NOTICE.md](NOTICE.md).
+*© 2026 Suleiman. Built with ❤️*
