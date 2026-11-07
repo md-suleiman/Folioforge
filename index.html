@@ -709,7 +709,13 @@ window.__preparePortfolioForTour=()=>{
     if(timer) clearInterval(timer);
     counterTimers.delete(el);
     el.textContent=el.dataset.count+'+';
-    el.closest('.reveal,.reveal-left,.reveal-right,.reveal-scale')?.classList.add('active');
+    const card=el.closest('.reveal,.reveal-left,.reveal-right,.reveal-scale');
+    if(card){
+      card.classList.add('active');
+      card.style.setProperty('opacity','1','important');
+      card.style.setProperty('transform','scale(1)','important');
+      card.style.setProperty('transition','none','important');
+    }
   });
 };
 
