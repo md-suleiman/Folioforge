@@ -2468,7 +2468,12 @@
       if (this.releasing) {
         for (const c of [...this.cursors]) {
           if (!c.gen) c.gen = this.leave(c);
-          if (c.gen.next(dt).done) this.cursors.splice(this.cursors.indexOf(c), 1);
+          if (c.gen.next(dt).done) {
+            this.cursors.splice(this.cursors.indexOf(c), 1);
+            if (!this.cursors.length && this.onReleaseComplete) {
+              this.onReleaseComplete();
+            }
+          }
         }
         return;
       }
@@ -3907,6 +3912,15 @@
         this.view.host.remove();
       };
       if (reveal) {
+        let releaseFinished = false;
+        const completeRelease = () => {
+          if (releaseFinished) return;
+          releaseFinished = true;
+          setExternalTour(false, false);
+          if (window.__stopPortfolioMusic) window.__stopPortfolioMusic();
+          finish();
+        };
+        this.engine.onReleaseComplete = completeRelease;
         this.engine.releasing = true;
         this.engine.flocking = true;
         for (const c of this.engine.cursors) {
@@ -3917,11 +3931,7 @@
         setTimeout(() => {
           this.view.host.style.setProperty("opacity", "0", "important");
         }, 450);
-        setTimeout(() => {
-          setExternalTour(false, false);
-          if (window.__stopPortfolioMusic) window.__stopPortfolioMusic();
-          finish();
-        }, 1150);
+        if (!this.engine.cursors.length) completeRelease();
       } else {
         if (window.__stopPortfolioMusic) window.__stopPortfolioMusic();
         this.view.host.style.setProperty("transition", "opacity .25s ease", "important");

@@ -824,7 +824,7 @@ window.__disablePortfolioAudioUnlock=()=>{startupAudioUnlockPending=false};
 
 // One-time interaction bridge for each active tour. It also covers pointer
 // movement because some browsers do not treat cursor movement as a gesture.
-const unlockEvents=['pointerdown','keydown','wheel','touchstart','pointermove'];
+const unlockEvents=['pointerdown','keydown','wheel','scroll','touchstart','pointermove'];
 function unlockTourMusic(){
   if(!swarmTrack||!startupAudioUnlockPending||!window.__swarmTourActive||userMutedByUser) return;
   startupAudioUnlockPending=false;
