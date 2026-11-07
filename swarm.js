@@ -3895,8 +3895,12 @@
       this.restoreLiveNavbar();
       if (this.sfx) {
         if (reveal) {
-          this.sfx.release();
-          this.sfx.close(1.4);
+          // The shared portfolio track must continue until every release
+          // cursor has left the screen. The release callback stops it.
+          if (!this.sfx.track) {
+            this.sfx.release();
+            this.sfx.close(1.4);
+          }
         } else if (this.sfx.track) {
           // A stopped run must release the shared MP3 immediately. A delayed
           // fade here can silence the next replay after it has restarted.
