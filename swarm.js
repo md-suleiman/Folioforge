@@ -3874,7 +3874,6 @@
       v.root.querySelector('[data-a="tour"]').hidden = true;
       v.root.querySelector('[data-a="speed"]').hidden = true;
       this.tour = false;
-      setExternalTour(false, false);
 
       // Make website directly interactive
       v.host.style.pointerEvents = "none";
@@ -3919,8 +3918,9 @@
           this.view.host.style.setProperty("opacity", "0", "important");
         }, 450);
         setTimeout(() => {
+          setExternalTour(false, false);
           if (window.__stopPortfolioMusic) window.__stopPortfolioMusic();
-        }, 1050);
+        }, 1150);
         setTimeout(finish, 1150);
       } else {
         if (window.__stopPortfolioMusic) window.__stopPortfolioMusic();
