@@ -184,6 +184,7 @@ section{position:relative;z-index:1;padding:120px 50px}
 .project-card.flip .project-image{order:2}
 .project-image{border-radius:20px;overflow:hidden;position:relative;border:1px solid var(--glass-border);aspect-ratio:16/10}
 .project-image-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:80px;background:linear-gradient(135deg,rgba(108,99,255,.12),rgba(255,101,132,.12))}
+.project-image-bg img{width:100%;height:100%;display:block;object-fit:cover}
 .project-image-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(108,99,255,.92),rgba(255,101,132,.92));display:flex;align-items:center;justify-content:center;gap:16px;opacity:0;transition:opacity .4s ease}
 .project-image:hover .project-image-overlay{opacity:1}
 .project-image-overlay .btn{padding:10px 24px;font-size:13px}
@@ -191,7 +192,8 @@ section{position:relative;z-index:1;padding:120px 50px}
 .project-info h3{font-size:32px;margin-bottom:16px}
 .project-info p{color:var(--text-muted);margin-bottom:24px}
 .project-tech{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
-.project-tech span{padding:6px 16px;background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;font-size:13px;color:var(--accent)}
+.project-tech span{padding:6px 16px;background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;font-size:13px;color:var(--accent);transition:transform .25s ease,background .25s ease,border-color .25s ease}
+.project-tech span:hover{transform:scale(1.14);background:rgba(108,99,255,.16);border-color:var(--primary);z-index:1}
 
 /* ============ TIMELINE ============ */
 #experience{background:var(--darker)}
@@ -454,7 +456,7 @@ footer span{color:var(--secondary)}
 
     <div class="project-card">
       <div class="project-image reveal-left">
-        <div class="project-image-bg">🛣️</div>
+        <div class="project-image-bg"><img src="roadscan.png" alt="RoadScan project preview"></div>
         <div class="project-image-overlay">
           <a href="https://roadscan.onrender.com/" target="_blank" rel="noopener" class="btn btn-primary">Live Prototype</a>
           <a href="https://github.com/md-suleiman/Roadscan" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:#fff;color:#fff">GitHub</a>
@@ -471,7 +473,7 @@ footer span{color:var(--secondary)}
 
     <div class="project-card flip">
       <div class="project-image reveal-right">
-        <div class="project-image-bg">🌍</div>
+        <div class="project-image-bg"><img src="Geosentinel.png" alt="GeoSentinel project preview"></div>
         <div class="project-image-overlay">
           <a href="https://geosentinelv2.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">Live Prototype</a>
           <a href="https://github.com/md-suleiman/GeoSentinel-V2" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:#fff;color:#fff">GitHub</a>
@@ -488,7 +490,7 @@ footer span{color:var(--secondary)}
 
     <div class="project-card">
       <div class="project-image reveal-left">
-        <div class="project-image-bg">💧</div>
+        <div class="project-image-bg"><img src="liquisense.png" alt="LiquiSense project preview"></div>
         <div class="project-image-overlay">
           <a href="https://liquisense.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">Live Prototype</a>
           <a href="https://github.com/md-suleiman/LiquiSense" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:#fff;color:#fff">GitHub</a>
@@ -581,7 +583,7 @@ footer span{color:var(--secondary)}
   </div>
 </section>
 
-<footer><p>© <span id="year">2026</span> <b>Mohammed Suleiman</b> · Computer Science Engineering, RUAS · <span>Building ideas into products.</span></p></footer>
+<footer><p>© 2026 Suleiman. Built with ❤️</p></footer>
 
 <audio id="swarmAudio" src="audio.mp3" preload="auto" autoplay loop playsinline data-volume="0.34"></audio>
 <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>

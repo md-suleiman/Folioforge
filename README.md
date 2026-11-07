@@ -21,6 +21,9 @@ Folioforge/
 ├── swarm.js                           # Swarm reconstruction runtime
 ├── audio.mp3                          # Soundtrack used by the swarm tour
 ├── profile-photo-cutout.png           # Profile image
+├── roadscan.png                       # RoadScan project preview
+├── Geosentinel.png                    # GeoSentinel project preview
+├── liquisense.png                     # LiquiSense project preview
 ├── archive/
 │   └── index-before-audio-unlock-update.html  # Earlier HTML variant
 ├── NOTICE.md                          # Source/reuse notes
