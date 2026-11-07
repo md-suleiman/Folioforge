@@ -819,10 +819,14 @@ window.__stopPortfolioMusic=()=>{
   paintVolumeButton();
 };
 
-// One-time gesture bridge to satisfy initial browser autoplay restriction
-const unlockEvents=['pointerdown','keydown','wheel','touchstart'];
+window.__resetPortfolioAudioUnlock=()=>{startupAudioUnlockPending=true};
+window.__disablePortfolioAudioUnlock=()=>{startupAudioUnlockPending=false};
+
+// One-time interaction bridge for each active tour. It also covers pointer
+// movement because some browsers do not treat cursor movement as a gesture.
+const unlockEvents=['pointerdown','keydown','wheel','touchstart','pointermove'];
 function unlockTourMusic(){
-  if(!swarmTrack||!startupAudioUnlockPending||!window.__swarmStartupAudio||!window.__swarmTourActive||userMutedByUser) return;
+  if(!swarmTrack||!startupAudioUnlockPending||!window.__swarmTourActive||userMutedByUser) return;
   startupAudioUnlockPending=false;
   swarmTrack.muted=false;
   swarmTrack.volume=baseTrackVolume;
@@ -831,7 +835,6 @@ function unlockTourMusic(){
     swarmTrack.muted=true;
     paintVolumeButton();
   });
-  unlockEvents.forEach(ev=>window.removeEventListener(ev,unlockTourMusic));
 }
 unlockEvents.forEach(ev=>window.addEventListener(ev,unlockTourMusic,{passive:true}));
 

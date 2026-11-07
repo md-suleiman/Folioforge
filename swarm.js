@@ -3920,8 +3920,8 @@
         setTimeout(() => {
           setExternalTour(false, false);
           if (window.__stopPortfolioMusic) window.__stopPortfolioMusic();
+          finish();
         }, 1150);
-        setTimeout(finish, 1150);
       } else {
         if (window.__stopPortfolioMusic) window.__stopPortfolioMusic();
         this.view.host.style.setProperty("transition", "opacity .25s ease", "important");
@@ -3955,7 +3955,12 @@
 
   function setExternalTour(on, stopMusic = true) {
     window.__swarmTourActive = !!on;
-    if (!on) window.__swarmStartupAudio = false;
+    if (!on) {
+      window.__swarmStartupAudio = false;
+      if (typeof window.__disablePortfolioAudioUnlock === "function") {
+        window.__disablePortfolioAudioUnlock();
+      }
+    }
     document.documentElement.classList.toggle("tour-active", !!on);
     if (!on) {
       document.documentElement.classList.remove("pointer-active");
@@ -3988,6 +3993,9 @@
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     window.__swarmTourActive = true;
     window.__swarmStartupAudio = startup;
+    if (typeof window.__resetPortfolioAudioUnlock === "function") {
+      window.__resetPortfolioAudioUnlock();
+    }
     document.documentElement.classList.add("tour-active");
     lastShot = null;
     if (app) {
