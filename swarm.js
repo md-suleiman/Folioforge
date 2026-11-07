@@ -3863,7 +3863,6 @@
 
     onComplete() {
       this.complete = true;
-      if (this.sfx && this.sfx.track) this.sfx.fadeOut(0.8);
       if (this.sfx) this.sfx.finale();
       const E = this.engine;
       const v = this.view;
@@ -3875,7 +3874,7 @@
       v.root.querySelector('[data-a="tour"]').hidden = true;
       v.root.querySelector('[data-a="speed"]').hidden = true;
       this.tour = false;
-      setExternalTour(false);
+      setExternalTour(false, false);
 
       // Make website directly interactive
       v.host.style.pointerEvents = "none";
@@ -3890,7 +3889,6 @@
       unhidePage();
       this.restoreHero();
       this.restoreLiveNavbar();
-      if (window.__stopPortfolioMusic) window.__stopPortfolioMusic();
       if (this.sfx) {
         if (reveal) {
           this.sfx.release();
@@ -3920,8 +3918,12 @@
         setTimeout(() => {
           this.view.host.style.setProperty("opacity", "0", "important");
         }, 450);
+        setTimeout(() => {
+          if (window.__stopPortfolioMusic) window.__stopPortfolioMusic();
+        }, 1050);
         setTimeout(finish, 1150);
       } else {
+        if (window.__stopPortfolioMusic) window.__stopPortfolioMusic();
         this.view.host.style.setProperty("transition", "opacity .25s ease", "important");
         this.view.host.style.setProperty("opacity", "0", "important");
         this.dead = true;
@@ -3951,12 +3953,13 @@
   let app = null;
   let lastShot = null;
 
-  function setExternalTour(on) {
+  function setExternalTour(on, stopMusic = true) {
     window.__swarmTourActive = !!on;
+    if (!on) window.__swarmStartupAudio = false;
     document.documentElement.classList.toggle("tour-active", !!on);
     if (!on) {
       document.documentElement.classList.remove("pointer-active");
-      if (typeof window.__stopPortfolioMusic === "function") {
+      if (stopMusic && typeof window.__stopPortfolioMusic === "function") {
         window.__stopPortfolioMusic();
       }
     }
@@ -3981,9 +3984,10 @@
     a.destroy(reveal);
   }
 
-  function restart() {
+  function restart(startup = false) {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     window.__swarmTourActive = true;
+    window.__swarmStartupAudio = startup;
     document.documentElement.classList.add("tour-active");
     lastShot = null;
     if (app) {
@@ -4029,9 +4033,9 @@
       stop(false);
       return;
     }
-    restart();
+    restart(false);
   });
   // Use the same reset-and-start path as the external Tour button so a fresh
   // page load follows exactly the same tour sequence as a replay.
-  restart();
+  restart(true);
 })();

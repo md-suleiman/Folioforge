@@ -777,6 +777,7 @@ const swarmTrack=document.getElementById('swarmAudio');
 const volumeBtn=document.getElementById('volumeBtn');
 const baseTrackVolume=Number(swarmTrack?.dataset.volume)||0.34;
 let userMutedByUser=false;
+let startupAudioUnlockPending=true;
 
 function paintVolumeButton(){
   if(!volumeBtn||!swarmTrack) return;
@@ -821,16 +822,16 @@ window.__stopPortfolioMusic=()=>{
 // One-time gesture bridge to satisfy initial browser autoplay restriction
 const unlockEvents=['pointerdown','keydown','wheel','touchstart'];
 function unlockTourMusic(){
-  if(!swarmTrack||!window.__swarmTourActive||userMutedByUser) return;
-  if(swarmTrack.muted){
-    swarmTrack.muted=false;
+  if(!swarmTrack||!startupAudioUnlockPending||!window.__swarmStartupAudio||!window.__swarmTourActive||userMutedByUser) return;
+  startupAudioUnlockPending=false;
+  swarmTrack.muted=false;
+  swarmTrack.volume=baseTrackVolume;
+  swarmTrack.play().then(paintVolumeButton).catch(()=>{
+    startupAudioUnlockPending=true;
+    swarmTrack.muted=true;
     paintVolumeButton();
-  } else if(swarmTrack.paused){
-    window.__startPortfolioMusic(false);
-  }
-  if(!swarmTrack.muted&&!swarmTrack.paused){
-    unlockEvents.forEach(ev=>window.removeEventListener(ev,unlockTourMusic));
-  }
+  });
+  unlockEvents.forEach(ev=>window.removeEventListener(ev,unlockTourMusic));
 }
 unlockEvents.forEach(ev=>window.addEventListener(ev,unlockTourMusic,{passive:true}));
 
