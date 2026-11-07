@@ -3648,6 +3648,9 @@
       await this.scan();
       mark("scan");
       if (this.dead) return;
+      if (typeof window.__preparePortfolioForTour === "function") {
+        window.__preparePortfolioForTour();
+      }
       try {
         await Promise.race([document.fonts.ready, sleep(600)]);
       } catch (_) {}

@@ -694,13 +694,24 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>io.observe(el));
 
 /* ===== COUNTER ===== */
+const counterTimers=new WeakMap();
 const co=new IntersectionObserver(es=>es.forEach(e=>{
   if(!e.isIntersecting)return;
   const el=e.target,t=+el.dataset.count;let n=0;
-  const id=setInterval(()=>{n+=t/60;if(n>=t){el.textContent=t+'+';clearInterval(id)}else el.textContent=Math.floor(n)+'+'},22);
+  const id=setInterval(()=>{n+=t/60;if(n>=t){el.textContent=t+'+';clearInterval(id);counterTimers.delete(el)}else el.textContent=Math.floor(n)+'+'},22);
+  counterTimers.set(el,id);
   co.unobserve(el);
 }),{threshold:.5});
 document.querySelectorAll('.stat-number[data-count]').forEach(el=>co.observe(el));
+window.__preparePortfolioForTour=()=>{
+  document.querySelectorAll('.stat-number[data-count]').forEach(el=>{
+    const timer=counterTimers.get(el);
+    if(timer) clearInterval(timer);
+    counterTimers.delete(el);
+    el.textContent=el.dataset.count+'+';
+    el.closest('.reveal,.reveal-left,.reveal-right,.reveal-scale')?.classList.add('active');
+  });
+};
 
 /* ===== 3D TILT ===== */
 document.querySelectorAll('.tilt-card').forEach(card=>{
